@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic Git workflow</title>
+  </head>
+  <body>
+
+    <article class="">
+      <h1>Hello Git</h1>
+
+      <p>
+        What is Git?
+        <strong>Git</strong> is a type of versioning software that allows us to keep track of changes we make to a project as we build it. Git records changes you make to an project, stores those chanages, then allows you to reference the changes as needed.
+      </p>
+
+      <p>
+        Hold on, what actually is <em>versioning</em> or "version control", and why do we use it in software development?
+
+        Version control is akin to creating different drrafts of a story. You wold not write an entire story in one sitting. Instead, you would write multiple drafts, makes changes along the way, keep final versions intact, and incorporate changes as needed. In software development, <strong>version control</strong> allows you yo create different versions of your code as you complete each milestone.
+      </p>
+
+    </article>
+
+    <article class="">
+      <h1>git init</h1>
+
+      <div class="terminalCode">
+        <code>git init</code>
+      </div>
+
+      <p>
+        Keyword <code>init</code> stands for <em>initialize</em> a local Git repo (aka repository) on your own computer. A <strong>Repository or repo</strong> refers to a directory where we store the versions of our code. As you create versions of your project, your local repo will keep track of each new version.
+    </p>
+
+    <p>
+      The <code>git init</code> command sets up the Git repo and tools Git needs to track changes to the project.
+    </p>
+
+    <p>
+      Once you initialize a new Git repo with <code>git init</code> your terminal will tell you where the new repo was created:
+    </p>
+
+    <div class="terminalCode">
+      <code>
+        Initalized an empty git repository in /home/ccuser/workspace/ready-sorcerers-code/.git/
+      </code>
+    </div>
+</article>
+
+<article class="">
+  <h1>git Workflow</h1>
+
+  <p>
+    A Git project can be thought of as having 3 parts:
+  </p>
+
+  <img src="https://i.gyazo.com/7188c7c1eea8e411acecdee456b542e2.png" alt="Git workflow: working directory, staging area, repo">
+
+  <ol>
+    <li>
+      <em>A Working Directory:</em> where you'll be doing all the work: creating, editing, deleting, and organizing files
+    </li>
+    <li>
+      <em>A Staging Area</em>: where you'll list changes you make to the working directory
+    </li>
+    <li>
+      <em>A Repository:</em> where Git permanently stores those changes as different <em>versions</em> of the project
+    </li>
+  </ol>
+
+  <p>
+    Git workflow consists of editing files in the <em>working directory</em> on your computer, adding files to the <em>staging area</em>, and saving changes to a Git <em>Repository</em>.
+
+    In Git we save changes with a <em>commit</em>
+  </p>
+</article>
+
+<article class="">
+
+  <h1>git status</h1>
+
+  <p>
+    As you update &amp; change the contents of your documents you will be making those changes in the <em>working directory</em>. You can check the status of the changes that you make with:
+  </p>
+
+  <div class="terminalCode">
+    <code>
+      git status
+    </code>
+  </div>
+
+  <p>
+    <code>git status</code> command will print a log of the changes that have occurred in the current version of a project.
+  </p>
+</article>
+
+<article class="">
+
+  <h1>git add</h1>
+
+  <p>
+    Git doesn't know about files that it should track until they have been added to the <em>staging area</em>. To add files to be tracked to the staging area we use <code>git add filename</code>. <code>filename</code> here refers to the the name of the file that you are editing that you want moved the the staging area for git to track changes.
+  </p>
+
+  <p>
+    To speed up your workflow if you have to add multiple files in a project to a staging area at once you can modify the <code>git add</code> command to <code>git add .</code>, which will add all the files &amp; directories in the current directory. So, if we enter the <code>git add .</code> from the <em>root directory</em> of a project, we add all the files &amp; directories of a project to the staging area at once!
+  </p>
+</article>
+
+<article class="">
+  <h1>git commit</h1>
+
+  <p>
+    A <em>commit</em> is the final step in our Git workflow. A commit <strong>permanently stores changes</strong> from the staging area inside the repository.
+  </p>
+
+  <p>
+    <code>git commit</code> commits all the files in your staging area. Hwever, one more piece of code is needed for a commit: the <em>option</em> <code>-m</code> followed by a message. For example:
+  </p>
+
+  <div class="terminalCode">
+    <code>
+      git commit -m "Complete first line of dialogue."
+    </code>
+  </div>
+
+  <p>
+    A commit message starts with an imperative verb and ends with a period, for example "Fix broken registration link."
+  </p>
+
+  <p>Good commit messages are written:</p>
+
+  <ol>
+    <li>in quotation marks</li>
+    <li>in present tense</li>
+    <li>in 50 character or less using <code>-m</code></li>
+  </ol>
+
+  <p>
+    After committing, we can check the status of the project and see that we have no new changes. This means we created a new version of our project, and are now comparing any changes to that version.
+  </p>
+</article>
+
+<article class="">
+
+  <h1>Create a Remote Repo[sitory] on GitHub</h1>
+
+  <p>
+  Often times you're going to be storing your code to a <strong>remote repo</strong> better known as a repository hosted on the internet or other network. This will be an identical repository, but stored in the cloud, so that anything happens to your computer or you want your code to be accessible to other, it'll be online!
+  </p>
+
+  <p>
+    <strong>GitHub</strong> is one such service for hosting remote repos on the web. Once the repo is stored online, you can make Git repos open source, track tasks &amp; issues, manage projects, and collaborate with other!
+  </p>
+</article>
+
+<article class="">
+
+  <h1>git remote add</h1>
+
+  <p>
+    Now Git, your local repo needs to know about the repo you created on GitHub (aka the remote repo) so that you can store your project there.
+  </p>
+
+  <p>
+    To specify the remote GitHub repo, we add the remote and label it as the origin as such
+  </p>
+
+  <div class="">
+    <code>
+      git remote add origin https://github.com/your-username/your-repository-name
+    </code>
+  </div>
+
+  <ol>
+    <li>The <strong>remote</strong> is the URL of the repository that will store your project's contents.</li>
+    <li>The <strong>origin</strong> is an alias for the remote repo. This means that instead of typing the lengthy remote GitHub URL each time, you can now just refer to it as <code>origin</code></li>
+    <li>
+      The URL
+      <div class="terminalCode">
+        <code>
+          https://github.com/your-username/your-repository-name
+        </code>
+      </div>
+      is the remote URL that refers to the repo youh created on GitHub earlier.
+      <ul>
+        <li>
+          Replace <code>your-username</code> with your GitHub username.
+        </li>
+        <li>
+          Replace <code>your-repository-name</code> with thr GitHub repo's name you created
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+  <p>
+    You can confirm the remote has been added with the following:
+  </p>
+
+  <div class="terminalCode">
+    <code>
+      git remote -v
+    </code>
+  </div>
+</article>
+
+<article class="">
+
+  <h1>git push upstream</h1>
+
+  <p>
+    To push new versions (<em>commits</em>) to our remote repo on GitHub all you need is this command:
+  </p>
+
+  <div class="terminalCode">
+    <code>
+      git push -u origin master
+    </code>
+  </div>
+
+  <p>
+    Let's break down this command:
+  </p>
+
+  <ol>
+    <li>
+      <code>git push</code> informs Git that we want to update a remote repo. In other words, we want to 'push' changes from a local repo to a remote repo
+    </li>
+    <li>
+      <code>origin</code> refers to the remote repo that we are pushing to on GitHub.
+    </li>
+    <li>
+      <code>master</code> refers to the place where our work lives on our local repo
+    </li>
+    <li>
+      <code>-u</code> stands for "upstream". By writing the command with the upstream option, we establish a link between the local repo &amp; the remote master branch. Git now knows which remote repo to push our changes to!
+    </li>
+  </ol>
+
+  <p>
+    An important thing to note, we <em>only need to user</em> <code>-u</code> option the first time we push to the remote repo.
+  </p>
+</article>
+
+<article class="">
+
+  <h1>git push</h1>
+
+  <p>
+    Once you connect the local and remote repos you can pushc changes using <code>git push origin master</code> you non longer need the <code>-u</code> for upstream
+    Using this command backs up our code to GitHub &amp; it's good practice to make sure that you push after every commit to make sure not to lose any work.
+  </p>
+</article>
+
+<article class="">
+  <p> Git is the industry-standard version control system for web developers &amp; you have the basic workflow down! Let's break down what we covered for Git: </p>
+  <p>Use Git commands to help keep track of changes made to a project:</p>
+
+  <ul>
+
+  <li><code>git init</code> creates a new Git repository.</li>
+  <li><code>git status</code> inspects the contents of the working directory and staging area.</li>
+  <li><code>git add filename</code> adds files from the working directory to the staging area.</li>
+  <li><code>git add .</code> adds all files from the working directory to the staging area.</li>
+  <li><code>git commit -m "commit message"</code> permanently stores file changes from the staging area in the repository.</li>
+</ul>
+
+<p>GitHub is a service for hosting remote repositories on the web.</p>
+<ul>
+  <li><code>git remote add origin url</code> specifies the remote repository using Git</li>
+  <li><code>git push -u origin master</code> pushes the changes to the master branch on the remote repository, linking the local repository to the remote repository.</li>
+  <li><code>git push origin master</code> pushes the changes to the master branch on the remote repository, given that the local repository and the remote repository are already linked.</li>
+</ul>
+
+<p>Differences between Git &amp; GitHub</p>
+
+<p><em>Git</em> is a widely used version control system used to manage code. Git allows you to save drafts of your code so that you cna look back at previous versions &amp; potentially undo complicated errors. A project managed with Git is called a <em>Git repository</em>.</p>
+
+<p><em>GitHub</em> is a popular hosting service for Git Repos. GitHub allows you to store your local Git Repos in the cloud. With GitHub, you can backup your personal files, share your code, &amp; collab with other devs.</p>
+</article>
+
+<article class="">
+  <h1>GitHub Pages</h1>
+
+  <p>What is GitHub pages?</p>
+
+  <p>
+    GitHub pages is a a free service that allows us to deploy a website publicly to the internet.
+    GitHub pages has massive benefits:
+  </p>
+
+  <ul>
+    <li>Easy setup</li>
+    <li>Seamless collaboration using Git &amp; GitHub</li>
+    <li>Free hosting with >95% uptime</li>
+    <li>Live updating with normal GitHub workflow</li>
+  </ul>
+
+  <p>Let's talk about 'deploying', what is it?</p>
+
+  <p>
+    Deploying is similar to publishing, once an authoer is ready for their work to be seen by the world, they publish it, and we can do the same with webites. Specifically deployment in wed development is when a project is packaged &amp; shared on the internet, and can occur many times over the course of a software project.
+  </p>
+
+  <p>
+    Once <a href="https://pages.github.com/">GitHub Pages is setup</a> deploying is automated whenever you push local changes to your remote, GitHub-hosted Repo.
+  </p>
+</article>
+  </body>
+</html>
